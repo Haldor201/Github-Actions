@@ -63,9 +63,12 @@ jobs:
           node-version: latest
       - name: nodeV
         run: node --version 
-        
+
       - name: action
         uses: ./.github/actions/
+        #pasamos un valor
+        with: 
+          message: "Haldor"
             
 
 

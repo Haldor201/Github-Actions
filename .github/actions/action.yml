@@ -1,10 +1,17 @@
 name: my-action
 description: test of my actions
 
+#parametros
+inputs:
+  message:
+    description: "value to print"
+    required: true
+    default: "Wazaaaaaaaa"
+
 runs:
   #nos permite agrupar pasos comunes
   using: "composite"
   steps:
     - name: Saludo
-      run: echo "Hola Mundo"
+      run: echo "Hola ${{inputs.message}}"
       shell: bash
