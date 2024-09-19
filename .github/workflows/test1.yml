@@ -34,6 +34,10 @@ jobs:
     #nombre del job que esperara que termine de ejecutarse, y despues se ejecutara este
     needs: hola
     runs-on: ubuntu-latest
+    #pasos
     steps: 
+      #del mismo github actions
+    - name: Checkout
+      uses: actions/checkout@v4.1.7
     - name: ls comando
       run: ls -al
