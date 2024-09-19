@@ -45,6 +45,7 @@ jobs:
   test-build:
     runs-on: ubuntu-latest
     steps: 
+      #llamados actions, son acciones reutilizables
       #usamos este para posicionarnos y ejecutar el script.sh
       - name: Checkout
         uses: actions/checkout@v4.1.7
@@ -54,5 +55,11 @@ jobs:
         run: |
           chmod +x script.sh
           ./script.sh
+      #ejecuta node js
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.4
+      - name: nodeV
+        run: node --v
+            
 
 
