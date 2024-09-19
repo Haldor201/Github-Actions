@@ -1,8 +1,16 @@
 #Nombre del Workflow
 name: Hola Mundo
 
+#Eventos
 #se va a ejecutar cuando haga un push
-on: [push]
+on: 
+  #se ejecutaran solo en esas ramas
+  push: 
+    branches: 
+      -main
+  pull_request:
+    branches:
+      -main
 
 jobs: 
 #Nombre del job
