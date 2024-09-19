@@ -48,7 +48,7 @@ jobs:
       - name: test
       #con "|" podemos usar multilinea
         run: |
-        echo "hola Test" >> hola.txt
-        cat hola.txt
+          echo "hola Test" >> hola.txt
+          cat hola.txt
 
 
