@@ -41,3 +41,14 @@ jobs:
       uses: actions/checkout@v4.1.7
     - name: ls comando
       run: ls -al
+  
+  test-build:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: test
+      #con "|" podemos usar multilinea
+        run: |
+        echo "hola Test" >> hola.txt
+        cat hola.txt
+
+
