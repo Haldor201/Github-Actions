@@ -21,7 +21,10 @@ jobs:
     
     - name: Read File
       run: cat hola.txt
+  
   respuesta:
+    #nombre del job que esperara que termine de ejecutarse, y despues se ejecutara este
+    needs: hola
     runs-on: ubuntu-latest
     steps: 
     - name: ls comando
