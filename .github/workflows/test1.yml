@@ -1,11 +1,19 @@
+#Nombre del Workflow
 name: Hola Mundo
 
 #se va a ejecutar cuando haga un push
 on: [push]
 
 jobs: 
+#Nombre del job
+# Cada job se ejecuta dentro de un servidor
   hola:
     runs-on: ubuntu-latest
     steps: 
     - name: hola mundo
       run: echo "Hola Mundo"
+  respuesta:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: ls comando
+      run: ls -al
