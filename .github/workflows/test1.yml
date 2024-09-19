@@ -12,8 +12,15 @@ jobs:
     steps: 
     - name: hola mundo
       run: echo "Hola Mundo"
+
     - name: generar archivo
       run: touch hola.txt
+      
+    - name: set Text
+      run: echo "Hola Mundo texto" >> hola.txt
+    
+    - name: Read File
+      run: cat hola.txt
   respuesta:
     runs-on: ubuntu-latest
     steps: 
