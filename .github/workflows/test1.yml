@@ -58,6 +58,9 @@ jobs:
       #ejecuta node js
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.4
+        #parametros al action de node js
+        with:
+          node-version: latest
       - name: nodeV
         run: node --version
             
