@@ -1,0 +1,10 @@
+name: my-action
+description: test of my actions
+
+runs:
+  #nos permite agrupar pasos comunes
+  using: "composite"
+  steps:
+    - name: Saludo
+      run: echo "Hola Mundo"
+      shell: bash

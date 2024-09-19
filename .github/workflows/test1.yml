@@ -62,7 +62,10 @@ jobs:
         with:
           node-version: latest
       - name: nodeV
-        run: node --version
+        run: node --version 
+        
+      - name: action
+        uses: ./.github/actions/
             
 
 
