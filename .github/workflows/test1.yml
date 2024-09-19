@@ -7,10 +7,10 @@ on:
   #se ejecutaran solo en esas ramas
   push: 
     branches: 
-      -main
+      - main
   pull_request:
     branches:
-      -main
+      - main
 
 jobs: 
 #Nombre del job
