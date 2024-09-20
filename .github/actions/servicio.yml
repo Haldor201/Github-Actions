@@ -1,0 +1,14 @@
+name: servicios
+description: instalando servicios con docker
+
+
+runs:
+  #nos permite agrupar pasos comunes
+  using: "composite"
+  services: 
+    mysql: 
+      image: mysql:5.7
+      environment:
+        MYSQL_ROOT_PASSWORD: example
+      ports:
+        - 3306:3306

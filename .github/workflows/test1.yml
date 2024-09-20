@@ -69,6 +69,9 @@ jobs:
         #pasamos un valor
         with: 
           message: "Haldor"
+
+      - name: mysql
+        uses: ./.github/actions/servicio.yml
             
 
 

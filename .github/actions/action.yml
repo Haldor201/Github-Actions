@@ -1,8 +1,9 @@
 name: my-action
 description: test of my actions
 
-#parametros
+#variables
 inputs:
+  #Nombre de la variable, descripcion, es rquerida y un valor por defecto
   message:
     description: "value to print"
     required: true
