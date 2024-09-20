@@ -94,8 +94,24 @@ jobs:
           My_var2: ", Como estas?"
           #usando una variable definida en la pagina de github, usando los contextos
         run: echo "Hola $My_Var$My_var2 ${{vars.MY_VARIABLE}}"
+
+        #los secretos, pueden ser links a las bases de datos, claves, etc. se pueden configurar en 
+        #settings->Secrets and variables->Actions
       - name: secret
-        run: echo "Secreto=> ${{secrets.SECRETDB}} " 
+        run: echo "Secreto=> ${{secrets.SECRETDB}}"
+  
+  
+  condicionales:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ls
+        id: status
+        run: ls -l
+      - name: hola
+        #o tambien failure, si falla
+        #si no se ejecuto el anterior, entonces este no se ejecutara
+        if: steps.status.outcome == 'success'
+        run: echo "Hola nice 2"
             
 
 
