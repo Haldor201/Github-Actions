@@ -13,6 +13,7 @@ on:
       - main
 
 jobs: 
+  
 #Nombre del job
 # Cada job se ejecuta dentro de un servidor
   hola:
@@ -29,6 +30,13 @@ jobs:
     
     - name: Read File
       run: cat hola.txt
+    services: 
+      mysql: 
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: example
+        ports:
+          - 3306:3306
   
   respuesta:
     #nombre del job que esperara que termine de ejecutarse, y despues se ejecutara este
@@ -69,9 +77,6 @@ jobs:
         #pasamos un valor
         with: 
           message: "Haldor"
-
-      - name: mysql
-        uses: ./.github/actions/servicio.yml
             
 
 
