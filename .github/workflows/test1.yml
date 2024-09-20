@@ -110,6 +110,7 @@ jobs:
       - name: hola
         #o tambien failure, si falla
         #si no se ejecuto el anterior, entonces este no se ejecutara
+        #condicional if: succes(),failure() nos dicen si alguno de los steps fallo o si funcionaron
         if: steps.status.outcome == 'success'
         run: echo "Hola nice 2"
             
