@@ -92,8 +92,10 @@ jobs:
       #Variable de steps
         env:
           My_var2: ", Como estas?"
-          #usando una variable definida en la pagina de github
+          #usando una variable definida en la pagina de github, usando los contextos
         run: echo "Hola $My_Var$My_var2 ${{vars.MY_VARIABLE}}"
+      - name: secret
+        run: echo "Secreto=> ${{secrets.SECRETDB}} " 
             
 
 
