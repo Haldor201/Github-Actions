@@ -81,6 +81,14 @@ jobs:
         #pasamos un valor
         with: 
           message: "Haldor"
+    
+  variable:
+    runs-on: ubuntu-latest
+    env:
+      My_Var: Haldor Calderon
+    steps:
+      - name: saludo
+        run: echo "Hola $My_Var"
             
 
 
