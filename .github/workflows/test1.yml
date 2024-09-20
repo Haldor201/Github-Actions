@@ -37,6 +37,10 @@ jobs:
           MYSQL_ROOT_PASSWORD: example
         ports:
           - 3306:3306
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
   
   respuesta:
     #nombre del job que esperara que termine de ejecutarse, y despues se ejecutara este
