@@ -84,11 +84,15 @@ jobs:
     
   variable:
     runs-on: ubuntu-latest
+    #definimos una variable de entorno
     env:
       My_Var: Haldor Calderon
     steps:
       - name: saludo
-        run: echo "Hola $My_Var"
+      #Variable de steps
+        env:
+          My_var2: ", Como estas?"
+        run: echo "Hola $My_Var$My_var2"
             
 
 
