@@ -5,7 +5,6 @@ import json
 def query_api():
     api_url = os.getenv("API_URL", "https://jsonplaceholder.typicode.com/todos/1")
     try:
-        # Add a timeout of 10 seconds (adjust as needed)
         response = requests.get(api_url, timeout=1)
         response.raise_for_status()
         data = response.json()
