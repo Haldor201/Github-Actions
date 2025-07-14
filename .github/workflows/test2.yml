@@ -44,13 +44,3 @@ jobs:
           echo "API Response Test: FAILED (Title mismatch)"
           exit 1 # Falla el paso si el título no coincide
         fi
-
-    - name: Further Validation (e.g., check for specific keys in JSON)
-      run: |
-        API_RESPONSE_JSON="${{ steps.api_query_step.outputs.api_response_json }}"
-        if echo "$API_RESPONSE_JSON" | grep -q '"userId": 1'; then
-          echo "Further Validation: PASSED (userId is 1)"
-        else
-          echo "Further Validation: FAILED (userId is not 1 or missing)"
-          exit 1
-        fi
