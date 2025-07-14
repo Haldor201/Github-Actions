@@ -28,7 +28,7 @@ jobs:
 
     - name: Run API Query Script and Capture Output
       id: api_query_step # Asigna un ID a este paso para poder referenciar sus salidas
-      run: python .github/workflows/api_query_output.py 
+      run: python api_query_output.py 
       env:
         API_URL: ${{ secrets.API_ENDPOINT }}
 
