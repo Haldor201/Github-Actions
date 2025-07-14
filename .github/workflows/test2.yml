@@ -1,0 +1,54 @@
+name: API Test Workflow - Workflow Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-api-in-workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+
+    - name: Run API Query Script and Capture Output
+      id: api_query_step # Asigna un ID a este paso para poder referenciar sus salidas
+      run: python .github/workflows/api_query_output.py # Asegúrate de que la ruta sea correcta
+
+    - name: Validate API Response Title
+      run: |
+        EXPECTED_TITLE="delectus aut autem"
+        ACTUAL_TITLE="${{ steps.api_query_step.outputs.api_title }}"
+        echo "Expected Title: $EXPECTED_TITLE"
+        echo "Actual Title: $ACTUAL_TITLE"
+        if [ "$ACTUAL_TITLE" = "$EXPECTED_TITLE" ]; then
+          echo "API Response Test: PASSED (Title matches)"
+        else
+          echo "API Response Test: FAILED (Title mismatch)"
+          exit 1 # Falla el paso si el título no coincide
+        fi
+
+    - name: Further Validation (e.g., check for specific keys in JSON)
+      run: |
+        API_RESPONSE_JSON="${{ steps.api_query_step.outputs.api_response_json }}"
+        if echo "$API_RESPONSE_JSON" | grep -q '"userId": 1'; then
+          echo "Further Validation: PASSED (userId is 1)"
+        else
+          echo "Further Validation: FAILED (userId is not 1 or missing)"
+          exit 1
+        fi
