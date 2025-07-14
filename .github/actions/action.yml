@@ -15,4 +15,4 @@ runs:
   steps:
     - name: Saludo
       run: echo "Hola ${{inputs.message}}"
-      shell: bash
+      shell: bash  
