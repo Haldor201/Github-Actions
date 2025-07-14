@@ -3,7 +3,7 @@ import os
 import json
 
 def query_api():
-    api_url = os.getenv("API_URL", "https://jsonplaceholder.typicode.com/todos/1")
+    api_url = os.getenv("API_URL")
     try:
         response = requests.get(api_url, timeout=1)
         response.raise_for_status()
